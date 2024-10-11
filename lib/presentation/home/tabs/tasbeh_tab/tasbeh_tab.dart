@@ -33,7 +33,7 @@ class _TasbehTabState extends State<TasbehTab>
   }
 
   void tasbehCounting() {
-    if (counter < 3) {
+    if (counter < 30) {
       setState(() {
         counter++;
       });
@@ -45,7 +45,7 @@ class _TasbehTabState extends State<TasbehTab>
     _controller.forward(from: 0);
     if (index >= tasbehatList.length - 1) {
       index = 0;
-    } else if (counter == 0 && index != tasbehatList.length) {
+    } else if (counter == 0) {
       index++;
     }
   }
