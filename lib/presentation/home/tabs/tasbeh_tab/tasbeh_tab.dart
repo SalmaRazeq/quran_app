@@ -22,6 +22,7 @@ class _TasbehTabState extends State<TasbehTab>
     'Allah Akbar',
     'Astghfar Allah',
     'La Elah ELa Allah',
+    ''
   ];
 
   void initState() {
@@ -32,8 +33,7 @@ class _TasbehTabState extends State<TasbehTab>
   }
 
   void tasbehCounting() {
-    int listLength = tasbehatList.length;
-    if (counter < 30) {
+    if (counter < 3) {
       setState(() {
         counter++;
       });
@@ -43,9 +43,9 @@ class _TasbehTabState extends State<TasbehTab>
       });
     }
     _controller.forward(from: 0);
-    if (index == listLength - 1) {
+    if (index >= tasbehatList.length - 1) {
       index = 0;
-    } else if (counter == 30) {
+    } else if (counter == 0 && index != tasbehatList.length) {
       index++;
     }
   }
