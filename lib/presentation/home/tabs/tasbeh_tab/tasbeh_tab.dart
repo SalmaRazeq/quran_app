@@ -50,11 +50,6 @@ class _TasbehTabState extends State<TasbehTab>
     }
   }
 
-  void dispose() {
-    _controller.dispose(); // Clean up the controller
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Column(
