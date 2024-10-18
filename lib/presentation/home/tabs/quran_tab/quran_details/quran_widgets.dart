@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
 class VersesWidget extends StatelessWidget {
   VersesWidget({super.key, required this.verseItem});

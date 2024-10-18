@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:quran_app/core/utils/assets_manager.dart';
-import 'package:quran_app/presentation/home/tabs/hadith_tab/widgets/hadith_header_widget.dart';
-import 'package:quran_app/presentation/home/tabs/hadith_tab/widgets/hadith_title_widget.dart';
+import "package:flutter/material.dart";
+import "package:flutter/services.dart";
+import "package:quran_app/core/utils/assets_manager.dart";
+import "package:quran_app/presentation/home/tabs/hadith_tab/widgets/hadith_header_widget.dart";
+import "package:quran_app/presentation/home/tabs/hadith_tab/widgets/hadith_title_widget.dart";
 
 class HadithTab extends StatefulWidget {
   HadithTab({super.key});
@@ -39,22 +39,22 @@ class _HadithTabState extends State<HadithTab> {
 
   void readHadithFile() async {
     var fileContent =
-        await rootBundle.loadString('assets/files/ahadeth.txt'); //blocking
-    List<String> hadithItemList = fileContent.trim().split('#');
+        await rootBundle.loadString("assets/files/ahadeth.txt"); //blocking
+    List<String> hadithItemList = fileContent.trim().split("#");
     for (int i = 0; i < hadithItemList.length; i++) {
       String hadithItem = hadithItemList[i];
-      List<String> hadithLines = hadithItem.trim().split('\n');
+      List<String> hadithLines = hadithItem.trim().split("\n");
       String title = hadithLines[0];
       hadithLines.removeAt(0);
-      String content = hadithLines.join('\n');
+      String content = hadithLines.join("\n");
       Hadith hadith = Hadith(title: title, content: content);
       hadithList.add(hadith);
     }
     // String hadithItem = hadithItemList[0];
-    // List<String> hadithLines = hadithItem.split('\n');
+    // List<String> hadithLines = hadithItem.split("\n");
     // String title = hadithLines[0];
     // hadithLines.removeAt(0);
-    // String contant = hadithLines.join('\n');
+    // String contant = hadithLines.join("\n");
     // print(title);
     // print(contant);
     setState(() {});

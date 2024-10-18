@@ -1,10 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:quran_app/config/theme/my_theme.dart';
-import 'package:quran_app/core/utils/routes_manager.dart';
-import 'package:quran_app/presentation/home/home_screen.dart';
-import 'package:quran_app/presentation/home/tabs/hadith_tab/widgets/hadith_details_screen/hadith_details_screen.dart';
-import 'package:quran_app/presentation/home/tabs/quran_tab/quran_details/quran_details_screen.dart';
-import 'package:quran_app/presentation/splash/splash.dart';
+import "package:flutter/material.dart";
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import "package:quran_app/config/theme/my_theme.dart";
+import "package:quran_app/core/utils/routes_manager.dart";
+import "package:quran_app/presentation/home/home_screen.dart";
+import "package:quran_app/presentation/home/tabs/hadith_tab/widgets/hadith_details_screen/hadith_details_screen.dart";
+import "package:quran_app/presentation/home/tabs/quran_tab/quran_details/quran_details_screen.dart";
+import "package:quran_app/presentation/splash/splash.dart";
 
 class MyApp extends StatelessWidget {
   @override
@@ -21,6 +22,9 @@ class MyApp extends StatelessWidget {
       theme: MyTheme.lightTheme,
       darkTheme: MyTheme.darkTheme,
       themeMode: ThemeMode.light,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: const [Locale("ar"), Locale("en")],
+      locale: Locale('en'),
     );
   }
 }

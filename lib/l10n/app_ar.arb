@@ -1,0 +1,17 @@
+{
+"appTitle" : "اسلامي",
+"chapterName" : "اسم السورة",
+"versesNumber" : "عدد الايات",
+"quranTab" : "القرآن",
+"hadithTab" : "الحديث",
+"sebhaTab" : "السبحة",
+"radioTab" : "الراديو",
+"settingsTab" : "الأعدادات",
+"hadithHeader" : "الأحاديث",
+"tasbehNumber" : "عدد التسبيحات",
+"theme" : "السمة",
+"light" : "فاتح",
+"dark" : "داكن",
+"language" : "اللغة",
+"arabic" : "العربية"
+}

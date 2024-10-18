@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:quran_app/core/utils/assets_manager.dart';
-import 'package:quran_app/core/utils/color_manager.dart';
-import 'package:quran_app/core/utils/strings_manager.dart';
+import "package:flutter/material.dart";
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import "package:quran_app/core/utils/assets_manager.dart";
+import "package:quran_app/core/utils/color_manager.dart";
 
 class TasbehTab extends StatefulWidget {
   TasbehTab({super.key});
@@ -17,12 +17,12 @@ class _TasbehTabState extends State<TasbehTab>
   late AnimationController _controller;
   late Animation<double> _animation;
   List<String> tasbehatList = [
-    'Sobhan Allah',
-    'Elhamdullah',
-    'Allah Akbar',
-    'Astghfar Allah',
-    'La Elah ELa Allah',
-    ''
+    "سبحان الله Sobhan Allah",
+    "الحمدلله Elhamdullah",
+    "الله اكبر Allah Akbar",
+    "استغفر الله Astaghfar Allah",
+    "لا اله الا الله La Elah ELa Allah",
+    ""
   ];
 
   void initState() {
@@ -33,7 +33,7 @@ class _TasbehTabState extends State<TasbehTab>
   }
 
   void tasbehCounting() {
-    if (counter < 30) {
+    if (counter < 33) {
       setState(() {
         counter++;
       });
@@ -55,7 +55,7 @@ class _TasbehTabState extends State<TasbehTab>
     return Column(
       children: [
         const SizedBox(
-          height: 50,
+          height: 40,
         ),
         Center(
           child: Stack(
@@ -82,7 +82,10 @@ class _TasbehTabState extends State<TasbehTab>
             ],
           ),
         ),
-        const Text(StringsManager.tasbehNumber),
+        Text(
+          AppLocalizations.of(context)!.tasbehNumber,
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
         Card(
           elevation: 0,
           color: ColorsManager.lighterGoldColor,
@@ -92,7 +95,7 @@ class _TasbehTabState extends State<TasbehTab>
           child: Padding(
             padding: const EdgeInsets.all(20),
             child:
-                Text('$counter', style: Theme.of(context).textTheme.bodyMedium),
+                Text("$counter", style: Theme.of(context).textTheme.bodyMedium),
           ),
         ),
         ElevatedButton(

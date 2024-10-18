@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:quran_app/core/utils/routes_manager.dart';
+import "package:flutter/material.dart";
+import "package:quran_app/core/utils/routes_manager.dart";
 
 class QuranTitleWidget extends StatelessWidget {
   String suraTitle;

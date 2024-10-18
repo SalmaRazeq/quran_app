@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:quran_app/core/utils/routes_manager.dart';
-import 'package:quran_app/presentation/home/tabs/hadith_tab/hadith_tab.dart';
+import "package:flutter/material.dart";
+import "package:quran_app/core/utils/routes_manager.dart";
+import "package:quran_app/presentation/home/tabs/hadith_tab/hadith_tab.dart";
 
 class HadithTitleWidget extends StatelessWidget {
   Hadith hadith;

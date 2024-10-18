@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
 class LanguageBotoomSheet extends StatefulWidget {
   const LanguageBotoomSheet({super.key});
@@ -15,11 +15,11 @@ class _LanguageBotoomSheetState extends State<LanguageBotoomSheet> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          theSelectedLanguage('English'),
+          theSelectedLanguage("English"),
           const SizedBox(
             height: 10,
           ),
-          theUnSelectedLanguage('العربية'),
+          theUnSelectedLanguage("العربية"),
         ],
       ),
     );

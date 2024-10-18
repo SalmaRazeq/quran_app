@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:quran_app/core/utils/color_manager.dart';
-import 'package:quran_app/core/utils/strings_manager.dart';
-import 'package:quran_app/presentation/home/tabs/settings_tab/widget/language_bottom_sheet.dart';
-import 'package:quran_app/presentation/home/tabs/settings_tab/widget/theme_botton_sheet.dart';
+import "package:flutter/material.dart";
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import "package:quran_app/presentation/home/tabs/settings_tab/widget/language_bottom_sheet.dart";
+import "package:quran_app/presentation/home/tabs/settings_tab/widget/theme_botton_sheet.dart";
 
 class SettingsTab extends StatelessWidget {
   const SettingsTab({super.key});
@@ -18,7 +17,7 @@ class SettingsTab extends StatelessWidget {
             height: 60,
           ),
           Text(
-            StringsManager.settingsTheme,
+            AppLocalizations.of(context)!.theme,
             style: Theme.of(context).textTheme.bodyMedium,
           ),
           const SizedBox(
@@ -37,12 +36,9 @@ class SettingsTab extends StatelessWidget {
                 border:
                     Border.all(color: Theme.of(context).dividerColor, width: 2),
               ),
-              child: const Text(
-                'Light',
-                style: TextStyle(
-                    fontSize: 20,
-                    color: ColorsManager.goldColor,
-                    fontWeight: FontWeight.w400),
+              child: Text(
+                AppLocalizations.of(context)!.light,
+                style: Theme.of(context).textTheme.labelSmall,
               ),
             ),
           ),
@@ -50,7 +46,7 @@ class SettingsTab extends StatelessWidget {
             height: 25,
           ),
           Text(
-            StringsManager.settingsLanguage,
+            AppLocalizations.of(context)!.language,
             style: Theme.of(context).textTheme.bodyMedium,
           ),
           const SizedBox(
@@ -70,7 +66,7 @@ class SettingsTab extends StatelessWidget {
                     Border.all(color: Theme.of(context).dividerColor, width: 2),
               ),
               child: Text(
-                'English',
+                AppLocalizations.of(context)!.english,
                 style: Theme.of(context).textTheme.labelSmall,
               ),
             ),

@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:quran_app/core/utils/assets_manager.dart';
-import 'package:quran_app/presentation/home/tabs/quran_tab/quran_details/quran_widgets.dart';
-import 'package:quran_app/presentation/home/tabs/quran_tab/widgets/quran_title_widget/quran_title_widget.dart';
+import "package:flutter/material.dart";
+import "package:flutter/services.dart";
+import "package:quran_app/core/utils/assets_manager.dart";
+import "package:quran_app/presentation/home/tabs/quran_tab/quran_details/quran_widgets.dart";
+import "package:quran_app/presentation/home/tabs/quran_tab/widgets/quran_title_widget/quran_title_widget.dart";
 
 class QuranDetailsScreen extends StatefulWidget {
   QuranDetailsScreen({super.key});
@@ -42,8 +42,8 @@ class _QuranDetailsScreenState extends State<QuranDetailsScreen> {
 
   void readFile(int index) async {
     String fileContent =
-        await rootBundle.loadString('assets/files/${index + 1}.txt');
-    var fileLines = fileContent.split('\n');
+        await rootBundle.loadString("assets/files/${index + 1}.txt");
+    var fileLines = fileContent.split("\n");
     // fileLines.forEach((element) {
     //   print(element);
     // });

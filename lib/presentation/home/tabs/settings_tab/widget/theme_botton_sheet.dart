@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ThemeBotoomSheet extends StatefulWidget {
   const ThemeBotoomSheet({super.key});
@@ -15,11 +16,11 @@ class _ThemeBotoomSheetState extends State<ThemeBotoomSheet> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          theSelectedTheme('Light'),
+          theSelectedTheme(AppLocalizations.of(context)!.light),
           const SizedBox(
             height: 10,
           ),
-          theUnSelectedTheme('Dark'),
+          theUnSelectedTheme(AppLocalizations.of(context)!.dark),
         ],
       ),
     );

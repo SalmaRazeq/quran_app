@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:quran_app/core/utils/assets_manager.dart';
-import 'package:quran_app/core/utils/strings_manager.dart';
-import 'package:quran_app/presentation/home/tabs/hadith_tab/hadith_tab.dart';
-import 'package:quran_app/presentation/home/tabs/quran_tab/quran_tab.dart';
-import 'package:quran_app/presentation/home/tabs/radio_tab/radio_tab.dart';
-import 'package:quran_app/presentation/home/tabs/settings_tab/settings_tab.dart';
-import 'package:quran_app/presentation/home/tabs/tasbeh_tab/tasbeh_tab.dart';
+import "package:flutter/material.dart";
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import "package:quran_app/core/utils/assets_manager.dart";
+import "package:quran_app/presentation/home/tabs/hadith_tab/hadith_tab.dart";
+import "package:quran_app/presentation/home/tabs/quran_tab/quran_tab.dart";
+import "package:quran_app/presentation/home/tabs/radio_tab/radio_tab.dart";
+import "package:quran_app/presentation/home/tabs/settings_tab/settings_tab.dart";
+import "package:quran_app/presentation/home/tabs/tasbeh_tab/tasbeh_tab.dart";
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
               image: AssetImage(AssetsManager.lightMainBg), fit: BoxFit.fill)),
       child: Scaffold(
         appBar: AppBar(
-          title: Text(StringsManager.appTitle),
+          title: Text(AppLocalizations.of(context)!.appTitle),
         ),
         bottomNavigationBar: BottomNavigationBar(
             onTap: (index) {
@@ -46,24 +46,24 @@ class _HomeScreenState extends State<HomeScreen> {
               BottomNavigationBarItem(
                   backgroundColor: Color(0xFFB7935F),
                   icon: ImageIcon(AssetImage(AssetsManager.quranIcon)),
-                  label: 'Quran'),
+                  label: AppLocalizations.of(context)!.quranTab),
               BottomNavigationBarItem(
                   backgroundColor: Color(0xFFB7935F),
                   icon: ImageIcon(AssetImage(AssetsManager.hadithIcon)),
-                  label: 'Hadith'),
+                  label: AppLocalizations.of(context)!.hadithTab),
               BottomNavigationBarItem(
                   backgroundColor: Color(0xFFB7935F),
                   icon: ImageIcon(AssetImage(AssetsManager.tasbehIcon)),
-                  label: 'Tasbeh'),
+                  label: AppLocalizations.of(context)!.hadithTab),
               BottomNavigationBarItem(
                 backgroundColor: Color(0xFFB7935F),
                 icon: ImageIcon(AssetImage(AssetsManager.radioIcon)),
-                label: 'Radio',
+                label: AppLocalizations.of(context)!.radioTab,
               ),
               BottomNavigationBarItem(
                   backgroundColor: Color(0xFFB7935F),
                   icon: Icon(Icons.settings),
-                  label: 'Settigns'),
+                  label: AppLocalizations.of(context)!.settingsTab),
             ]),
         body: tabs[selectedIndex],
       ),
