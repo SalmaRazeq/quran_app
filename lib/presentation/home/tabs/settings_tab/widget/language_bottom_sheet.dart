@@ -35,8 +35,6 @@ class _LanguageBotoomSheetState extends State<LanguageBotoomSheet> {
         const Spacer(),
         const Icon(
           Icons.check,
-          color: Colors.white,
-          size: 30,
         ),
       ],
     );

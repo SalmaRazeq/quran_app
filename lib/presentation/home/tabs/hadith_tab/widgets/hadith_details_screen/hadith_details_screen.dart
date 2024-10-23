@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import "package:quran_app/config/theme/my_theme.dart";
 import "package:quran_app/core/utils/assets_manager.dart";
 import "package:quran_app/presentation/home/tabs/hadith_tab/hadith_tab.dart";
 
@@ -14,7 +15,9 @@ class HadithDetailsScreen extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage(AssetsManager.lightMainBg),
+                image: AssetImage(MyTheme.isDarkEnable
+                    ? AssetsManager.darkMainBg
+                    : AssetsManager.lightMainBg),
                 fit: BoxFit.fill)),
         child: Scaffold(
           appBar: AppBar(
@@ -27,12 +30,12 @@ class HadithDetailsScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       Container(
-                        padding: EdgeInsets.only(top: 15),
+                        padding: const EdgeInsets.only(top: 15),
                         width: double.infinity,
                         alignment: Alignment.center,
                         child: Text(
                           hadithArgs.title,
-                          style: Theme.of(context).textTheme.bodyMedium,
+                          style: Theme.of(context).textTheme.labelMedium,
                         ),
                       ),
                       Divider(
@@ -43,10 +46,10 @@ class HadithDetailsScreen extends StatelessWidget {
                         indent: 42,
                       ),
                       Container(
-                          padding: EdgeInsets.all(12),
+                          padding: const EdgeInsets.all(12),
                           child: Text(
                             hadithArgs.content,
-                            style: Theme.of(context).textTheme.bodySmall,
+                            style: Theme.of(context).textTheme.labelSmall,
                             textAlign: TextAlign.center,
                           )),
                     ],

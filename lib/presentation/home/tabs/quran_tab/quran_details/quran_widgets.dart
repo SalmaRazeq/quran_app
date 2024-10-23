@@ -11,10 +11,10 @@ class VersesWidget extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: Card(
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: 3, horizontal: 8),
+          padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 8),
           alignment: Alignment.center,
           child: Text(verseItem,
-              style: Theme.of(context).textTheme.bodyMedium,
+              style: Theme.of(context).textTheme.labelMedium,
               textAlign: TextAlign.center),
         ),
       ),

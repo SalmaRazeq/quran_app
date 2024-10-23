@@ -7,12 +7,12 @@ class QuranHeaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 8),
+      padding: const EdgeInsets.symmetric(vertical: 8),
       alignment: Alignment.center,
       width: double.infinity,
       decoration: BoxDecoration(
           border: Border.symmetric(
-        horizontal: BorderSide(color: Theme.of(context).primaryColor, width: 3),
+        horizontal: BorderSide(color: Theme.of(context).dividerColor, width: 3),
       )),
       child: IntrinsicHeight(
         child: Row(

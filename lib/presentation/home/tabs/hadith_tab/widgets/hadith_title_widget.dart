@@ -18,7 +18,7 @@ class HadithTitleWidget extends StatelessWidget {
         );
       },
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 3),
+        padding: const EdgeInsets.symmetric(vertical: 3),
         child: Text(
           hadith.title,
           style: Theme.of(context).textTheme.bodyMedium,

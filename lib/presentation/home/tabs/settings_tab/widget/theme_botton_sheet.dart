@@ -1,14 +1,14 @@
 import "package:flutter/material.dart";
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class ThemeBotoomSheet extends StatefulWidget {
-  const ThemeBotoomSheet({super.key});
+class ThemeBottomSheet extends StatefulWidget {
+  const ThemeBottomSheet({super.key});
 
   @override
-  State<ThemeBotoomSheet> createState() => _ThemeBotoomSheetState();
+  State<ThemeBottomSheet> createState() => _ThemeBottomSheetState();
 }
 
-class _ThemeBotoomSheetState extends State<ThemeBotoomSheet> {
+class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,8 +36,6 @@ class _ThemeBotoomSheetState extends State<ThemeBotoomSheet> {
         const Spacer(),
         const Icon(
           Icons.check,
-          color: Colors.white,
-          size: 30,
         ),
       ],
     );

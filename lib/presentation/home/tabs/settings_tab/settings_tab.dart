@@ -31,7 +31,7 @@ class SettingsTab extends StatelessWidget {
               width: double.infinity,
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 4),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).primaryColor,
                 borderRadius: BorderRadius.circular(8),
                 border:
                     Border.all(color: Theme.of(context).dividerColor, width: 2),
@@ -60,7 +60,7 @@ class SettingsTab extends StatelessWidget {
               width: double.infinity,
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 4),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).primaryColor,
                 borderRadius: BorderRadius.circular(8),
                 border:
                     Border.all(color: Theme.of(context).dividerColor, width: 2),
@@ -79,7 +79,7 @@ class SettingsTab extends StatelessWidget {
   void showThemeBottomSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      builder: (context) => const ThemeBotoomSheet(),
+      builder: (context) => const ThemeBottomSheet(),
     );
   }
 }

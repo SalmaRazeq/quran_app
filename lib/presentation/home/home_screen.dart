@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import "package:quran_app/config/theme/my_theme.dart";
 import "package:quran_app/core/utils/assets_manager.dart";
 import "package:quran_app/presentation/home/tabs/hadith_tab/hadith_tab.dart";
 import "package:quran_app/presentation/home/tabs/quran_tab/quran_tab.dart";
@@ -28,9 +29,12 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage(AssetsManager.lightMainBg), fit: BoxFit.fill)),
+              fit: BoxFit.fill,
+              image: AssetImage(MyTheme.isDarkEnable
+                  ? AssetsManager.darkMainBg
+                  : AssetsManager.lightMainBg))),
       child: Scaffold(
         appBar: AppBar(
           title: Text(AppLocalizations.of(context)!.appTitle),
@@ -42,26 +46,22 @@ class _HomeScreenState extends State<HomeScreen> {
               });
             },
             currentIndex: selectedIndex,
+            type: BottomNavigationBarType.fixed,
             items: [
               BottomNavigationBarItem(
-                  backgroundColor: Color(0xFFB7935F),
                   icon: ImageIcon(AssetImage(AssetsManager.quranIcon)),
                   label: AppLocalizations.of(context)!.quranTab),
               BottomNavigationBarItem(
-                  backgroundColor: Color(0xFFB7935F),
                   icon: ImageIcon(AssetImage(AssetsManager.hadithIcon)),
                   label: AppLocalizations.of(context)!.hadithTab),
               BottomNavigationBarItem(
-                  backgroundColor: Color(0xFFB7935F),
                   icon: ImageIcon(AssetImage(AssetsManager.tasbehIcon)),
                   label: AppLocalizations.of(context)!.hadithTab),
               BottomNavigationBarItem(
-                backgroundColor: Color(0xFFB7935F),
                 icon: ImageIcon(AssetImage(AssetsManager.radioIcon)),
                 label: AppLocalizations.of(context)!.radioTab,
               ),
               BottomNavigationBarItem(
-                  backgroundColor: Color(0xFFB7935F),
                   icon: Icon(Icons.settings),
                   label: AppLocalizations.of(context)!.settingsTab),
             ]),

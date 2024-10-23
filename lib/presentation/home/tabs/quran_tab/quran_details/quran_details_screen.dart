@@ -1,11 +1,12 @@
 import "package:flutter/material.dart";
 import "package:flutter/services.dart";
+import "package:quran_app/config/theme/my_theme.dart";
 import "package:quran_app/core/utils/assets_manager.dart";
 import "package:quran_app/presentation/home/tabs/quran_tab/quran_details/quran_widgets.dart";
 import "package:quran_app/presentation/home/tabs/quran_tab/widgets/quran_title_widget/quran_title_widget.dart";
 
 class QuranDetailsScreen extends StatefulWidget {
-  QuranDetailsScreen({super.key});
+  const QuranDetailsScreen({super.key});
 
   @override
   State<QuranDetailsScreen> createState() => _QuranDetailsScreenState();
@@ -23,13 +24,16 @@ class _QuranDetailsScreenState extends State<QuranDetailsScreen> {
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage(AssetsManager.lightMainBg), fit: BoxFit.fill)),
+              image: AssetImage(MyTheme.isDarkEnable
+                  ? AssetsManager.darkMainBg
+                  : AssetsManager.lightMainBg),
+              fit: BoxFit.fill)),
       child: Scaffold(
           appBar: AppBar(
             title: Text(args.suraName),
           ),
           body: verses.isEmpty
-              ? Center(
+              ? const Center(
                   child: CircularProgressIndicator(),
                 )
               : ListView.builder(

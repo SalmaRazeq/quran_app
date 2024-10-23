@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       initialRoute: RoutesManager.splashRoute,
       theme: MyTheme.lightTheme,
       darkTheme: MyTheme.darkTheme,
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.dark,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: const [Locale("ar"), Locale("en")],
       locale: Locale('en'),
