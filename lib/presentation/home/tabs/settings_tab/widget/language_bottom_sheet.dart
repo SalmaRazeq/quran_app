@@ -1,4 +1,6 @@
 import "package:flutter/material.dart";
+import "package:provider/provider.dart";
+import "package:quran_app/providers/Language_provider.dart";
 
 class LanguageBotoomSheet extends StatefulWidget {
   const LanguageBotoomSheet({super.key});
@@ -10,16 +12,29 @@ class LanguageBotoomSheet extends StatefulWidget {
 class _LanguageBotoomSheetState extends State<LanguageBotoomSheet> {
   @override
   Widget build(BuildContext context) {
+    var langProvider = Provider.of<LanguageProvider>(context);
     return Container(
       padding: const EdgeInsets.all(14),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          theSelectedLanguage("English"),
+          InkWell(
+              onTap: () {
+                langProvider.changeAppLanguage('en');
+              },
+              child: langProvider.currentLanguage == 'en'
+                  ? theSelectedLanguage("English")
+                  : theUnSelectedLanguage("English")),
           const SizedBox(
             height: 10,
           ),
-          theUnSelectedLanguage("العربية"),
+          InkWell(
+              onTap: () {
+                langProvider.changeAppLanguage('ar');
+              },
+              child: langProvider.currentLanguage == 'ar'
+                  ? theSelectedLanguage("العربية")
+                  : theUnSelectedLanguage("العربية")),
         ],
       ),
     );
@@ -35,15 +50,20 @@ class _LanguageBotoomSheetState extends State<LanguageBotoomSheet> {
         const Spacer(),
         const Icon(
           Icons.check,
+          color: Colors.white,
         ),
       ],
     );
   }
 
   Widget theUnSelectedLanguage(String unSelectedLanguage) {
-    return Text(
-      unSelectedLanguage,
-      style: Theme.of(context).textTheme.bodyMedium,
+    return Row(
+      children: [
+        Text(
+          unSelectedLanguage,
+          style: Theme.of(context).textTheme.bodyMedium,
+        ),
+      ],
     );
   }
 }

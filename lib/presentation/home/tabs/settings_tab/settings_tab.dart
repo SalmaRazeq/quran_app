@@ -1,13 +1,18 @@
 import "package:flutter/material.dart";
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import "package:provider/provider.dart";
 import "package:quran_app/presentation/home/tabs/settings_tab/widget/language_bottom_sheet.dart";
 import "package:quran_app/presentation/home/tabs/settings_tab/widget/theme_botton_sheet.dart";
+import "package:quran_app/providers/Language_provider.dart";
+import "package:quran_app/providers/theme_Provider.dart";
 
 class SettingsTab extends StatelessWidget {
   const SettingsTab({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var themeProvider = Provider.of<ThemeProvider>(context);
+    var langProvider = Provider.of<LanguageProvider>(context);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Column(
@@ -37,7 +42,9 @@ class SettingsTab extends StatelessWidget {
                     Border.all(color: Theme.of(context).dividerColor, width: 2),
               ),
               child: Text(
-                AppLocalizations.of(context)!.light,
+                themeProvider.isLightTheme()
+                    ? AppLocalizations.of(context)!.light
+                    : AppLocalizations.of(context)!.dark,
                 style: Theme.of(context).textTheme.labelSmall,
               ),
             ),
@@ -66,7 +73,7 @@ class SettingsTab extends StatelessWidget {
                     Border.all(color: Theme.of(context).dividerColor, width: 2),
               ),
               child: Text(
-                AppLocalizations.of(context)!.english,
+                langProvider.currentLanguage == 'en' ? 'English' : 'العربية',
                 style: Theme.of(context).textTheme.labelSmall,
               ),
             ),

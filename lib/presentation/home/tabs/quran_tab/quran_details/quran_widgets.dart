@@ -14,7 +14,10 @@ class VersesWidget extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 8),
           alignment: Alignment.center,
           child: Text(verseItem,
-              style: Theme.of(context).textTheme.labelMedium,
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyMedium!
+                  .copyWith(color: Theme.of(context).colorScheme.onPrimary),
               textAlign: TextAlign.center),
         ),
       ),

@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+import 'package:quran_app/providers/theme_Provider.dart';
 
 class ThemeBottomSheet extends StatefulWidget {
   const ThemeBottomSheet({super.key});
@@ -11,16 +13,30 @@ class ThemeBottomSheet extends StatefulWidget {
 class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
   @override
   Widget build(BuildContext context) {
+    var themeProvider = Provider.of<ThemeProvider>(context);
     return Container(
       padding: const EdgeInsets.all(14),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          theSelectedTheme(AppLocalizations.of(context)!.light),
+          InkWell(
+              onTap: () {
+                themeProvider.changeAppTheme(ThemeMode.light);
+              },
+              child: themeProvider.currentTheme == ThemeMode.light
+                  ? theSelectedTheme(AppLocalizations.of(context)!.light)
+                  : theUnSelectedTheme(AppLocalizations.of(context)!.light)),
           const SizedBox(
             height: 10,
           ),
-          theUnSelectedTheme(AppLocalizations.of(context)!.dark),
+          InkWell(
+            onTap: () {
+              themeProvider.changeAppTheme(ThemeMode.dark);
+            },
+            child: themeProvider.currentTheme == ThemeMode.dark
+                ? theSelectedTheme(AppLocalizations.of(context)!.dark)
+                : theUnSelectedTheme(AppLocalizations.of(context)!.dark),
+          )
         ],
       ),
     );
@@ -42,9 +58,13 @@ class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
   }
 
   Widget theUnSelectedTheme(String unSelectedTheme) {
-    return Text(
-      unSelectedTheme,
-      style: Theme.of(context).textTheme.bodyMedium,
+    return Row(
+      children: [
+        Text(
+          unSelectedTheme,
+          style: Theme.of(context).textTheme.bodyMedium,
+        ),
+      ],
     );
   }
 }

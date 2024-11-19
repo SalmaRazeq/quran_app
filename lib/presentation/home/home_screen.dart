@@ -1,12 +1,13 @@
 import "package:flutter/material.dart";
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import "package:quran_app/config/theme/my_theme.dart";
+import "package:provider/provider.dart";
 import "package:quran_app/core/utils/assets_manager.dart";
 import "package:quran_app/presentation/home/tabs/hadith_tab/hadith_tab.dart";
 import "package:quran_app/presentation/home/tabs/quran_tab/quran_tab.dart";
 import "package:quran_app/presentation/home/tabs/radio_tab/radio_tab.dart";
 import "package:quran_app/presentation/home/tabs/settings_tab/settings_tab.dart";
 import "package:quran_app/presentation/home/tabs/tasbeh_tab/tasbeh_tab.dart";
+import "package:quran_app/providers/theme_Provider.dart";
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
@@ -20,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
     QuranTab(),
     HadithTab(),
     TasbehTab(),
-    RadioTab(),
+    const RadioTab(),
     SettingsTab(),
   ];
 
@@ -28,13 +29,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var themeProvider = Provider.of<ThemeProvider>(context);
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
               fit: BoxFit.fill,
-              image: AssetImage(MyTheme.isDarkEnable
-                  ? AssetsManager.darkMainBg
-                  : AssetsManager.lightMainBg))),
+              image: AssetImage(themeProvider.isLightTheme()
+                  ? AssetsManager.lightMainBg
+                  : AssetsManager.darkMainBg))),
       child: Scaffold(
         appBar: AppBar(
           title: Text(AppLocalizations.of(context)!.appTitle),
@@ -49,20 +51,20 @@ class _HomeScreenState extends State<HomeScreen> {
             type: BottomNavigationBarType.fixed,
             items: [
               BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage(AssetsManager.quranIcon)),
+                  icon: const ImageIcon(AssetImage(AssetsManager.quranIcon)),
                   label: AppLocalizations.of(context)!.quranTab),
               BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage(AssetsManager.hadithIcon)),
+                  icon: const ImageIcon(AssetImage(AssetsManager.hadithIcon)),
                   label: AppLocalizations.of(context)!.hadithTab),
               BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage(AssetsManager.tasbehIcon)),
+                  icon: const ImageIcon(AssetImage(AssetsManager.tasbehIcon)),
                   label: AppLocalizations.of(context)!.hadithTab),
               BottomNavigationBarItem(
-                icon: ImageIcon(AssetImage(AssetsManager.radioIcon)),
+                icon: const ImageIcon(AssetImage(AssetsManager.radioIcon)),
                 label: AppLocalizations.of(context)!.radioTab,
               ),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.settings),
+                  icon: const Icon(Icons.settings),
                   label: AppLocalizations.of(context)!.settingsTab),
             ]),
         body: tabs[selectedIndex],

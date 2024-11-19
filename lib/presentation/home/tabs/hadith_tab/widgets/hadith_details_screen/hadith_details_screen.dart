@@ -1,8 +1,9 @@
 import "package:flutter/material.dart";
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import "package:quran_app/config/theme/my_theme.dart";
+import "package:provider/provider.dart";
 import "package:quran_app/core/utils/assets_manager.dart";
 import "package:quran_app/presentation/home/tabs/hadith_tab/hadith_tab.dart";
+import "package:quran_app/providers/theme_Provider.dart";
 
 class HadithDetailsScreen extends StatelessWidget {
   const HadithDetailsScreen({super.key});
@@ -10,18 +11,20 @@ class HadithDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Hadith hadithArgs = ModalRoute.of(context)?.settings.arguments as Hadith;
-
+    var themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage(MyTheme.isDarkEnable
-                    ? AssetsManager.darkMainBg
-                    : AssetsManager.lightMainBg),
+                image: AssetImage(themeProvider.isLightTheme()
+                    ? AssetsManager.lightMainBg
+                    : AssetsManager.darkMainBg),
                 fit: BoxFit.fill)),
         child: Scaffold(
           appBar: AppBar(
-            title: Text(AppLocalizations.of(context)!.appTitle),
+            title: Text(
+              AppLocalizations.of(context)!.appTitle,
+            ),
           ),
           body: SingleChildScrollView(
             child: Column(
@@ -35,7 +38,12 @@ class HadithDetailsScreen extends StatelessWidget {
                         alignment: Alignment.center,
                         child: Text(
                           hadithArgs.title,
-                          style: Theme.of(context).textTheme.labelMedium,
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleMedium!
+                              .copyWith(
+                                  color:
+                                      Theme.of(context).colorScheme.onPrimary),
                         ),
                       ),
                       Divider(
@@ -49,7 +57,14 @@ class HadithDetailsScreen extends StatelessWidget {
                           padding: const EdgeInsets.all(12),
                           child: Text(
                             hadithArgs.content,
-                            style: Theme.of(context).textTheme.labelSmall,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodySmall!
+                                .copyWith(
+                                    fontSize: 22,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onPrimary),
                             textAlign: TextAlign.center,
                           )),
                     ],

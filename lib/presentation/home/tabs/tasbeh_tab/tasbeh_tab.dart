@@ -1,7 +1,8 @@
 import "package:flutter/material.dart";
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import "package:quran_app/config/theme/my_theme.dart";
+import "package:provider/provider.dart";
 import "package:quran_app/core/utils/assets_manager.dart";
+import "package:quran_app/providers/theme_Provider.dart";
 
 class TasbehTab extends StatefulWidget {
   TasbehTab({super.key});
@@ -44,6 +45,7 @@ class _TasbehTabState extends State<TasbehTab>
 
   @override
   Widget build(BuildContext context) {
+    var themeProvider = Provider.of<ThemeProvider>(context);
     Size size = MediaQuery.of(context).size;
     return Center(
       child: Column(
@@ -55,19 +57,19 @@ class _TasbehTabState extends State<TasbehTab>
             alignment: Alignment.topCenter,
             children: [
               Image.asset(
-                MyTheme.isDarkEnable
-                    ? AssetsManager.darkSebhaHead
-                    : AssetsManager.sebhaHead,
+                themeProvider.isLightTheme()
+                    ? AssetsManager.sebhaHead
+                    : AssetsManager.darkSebhaHead,
               ),
               Padding(
                 padding: EdgeInsets.only(top: size.height * 0.085),
                 child: Transform.rotate(
                   angle: angle,
                   child: Image.asset(
-                    height: size.height * 0.29,
-                    MyTheme.isDarkEnable
-                        ? AssetsManager.darkSebhaBody
-                        : AssetsManager.sebhaBody,
+                    height: size.height * 0.28,
+                    themeProvider.isLightTheme()
+                        ? AssetsManager.sebhaBody
+                        : AssetsManager.darkSebhaBody,
                   ),
                 ),
               )
@@ -95,14 +97,11 @@ class _TasbehTabState extends State<TasbehTab>
             onPressed: () {
               tasbehCounting();
             },
-            style: Theme.of(context).elevatedButtonTheme.style,
             child: Padding(
               padding: const EdgeInsets.all(8),
               child: Text(
                 tasbehatList[index],
-                style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                      fontSize: 23,
-                    ),
+                style: Theme.of(context).textTheme.displayMedium,
               ),
             ),
           ),

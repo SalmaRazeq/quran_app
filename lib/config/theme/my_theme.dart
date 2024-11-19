@@ -2,10 +2,12 @@ import "package:flutter/material.dart";
 import "package:quran_app/core/utils/color_manager.dart";
 
 class MyTheme {
-  static bool isDarkEnable = true;
   static final ThemeData lightTheme = ThemeData(
-    colorScheme: ColorScheme.fromSeed(seedColor: ColorsManager.goldColor),
-    primaryColor: ColorsManager.goldColor,
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: ColorsManager.goldColor,
+      primary: ColorsManager.goldColor,
+      onPrimary: ColorsManager.black,
+    ),
     appBarTheme: const AppBarTheme(
         centerTitle: true,
         titleTextStyle: TextStyle(
@@ -55,6 +57,10 @@ class MyTheme {
           fontSize: 25,
           fontWeight: FontWeight.w400,
           color: ColorsManager.white),
+      displayMedium: TextStyle(
+          fontSize: 23,
+          fontWeight: FontWeight.w400,
+          color: ColorsManager.white),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
@@ -81,7 +87,7 @@ class MyTheme {
     colorScheme: ColorScheme.fromSeed(
       seedColor: ColorsManager.darkBlueColor,
       shadow: ColorsManager.black,
-    ),
+        onPrimary: ColorsManager.yellowColor),
     primaryColor: ColorsManager.darkBlueColor,
     appBarTheme: const AppBarTheme(
         centerTitle: true,
@@ -132,6 +138,10 @@ class MyTheme {
           fontSize: 25,
           fontWeight: FontWeight.w400,
           color: ColorsManager.yellowColor),
+      displayMedium: TextStyle(
+          fontSize: 23,
+          fontWeight: FontWeight.w400,
+          color: ColorsManager.darkBlueColor),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
