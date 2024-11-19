@@ -9,10 +9,10 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (context) => ThemeProvider(),
+          create: (context) => ThemeProvider()..getTheme(),
         ),
         ChangeNotifierProvider(
-          create: (context) => LanguageProvider(),
+          create: (context) => LanguageProvider()..getLang(),
         ),
       ], // singletone instance
       child: MyApp(),
